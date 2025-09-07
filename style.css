@@ -1,0 +1,219 @@
+/* Animasi Fade */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar Links */
+.nav-link {
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  color: #f59e0b; /* Gold Amber */
+  transform: translateY(-2px);
+}
+
+/* Highlight section */
+.highlight {
+  animation: highlightFade 1.2s ease-in-out;
+}
+@keyframes highlightFade {
+  from { background-color: rgba(251, 191, 36, 0.4); }
+  to { background-color: transparent; }
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #166534, #facc15); /* emerald → gold */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 9999;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #166534, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+.section-subtitle {
+  color: #4b5563;
+  font-size: 1.125rem;
+  max-width: 40rem;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+}
+
+/* Hero dengan nuansa premium */
+.hero-bg {
+  background: linear-gradient(rgba(22,101,52,0.75), rgba(202,138,4,0.5)), 
+              url("Unknown-5.jpg") center/cover no-repeat;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(250,204,21,0.3), transparent 70%);
+  border-radius: 0.75rem;
+}
+
+/* Animasi muncul scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card Style */
+.card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+.card-img {
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: #166534;
+}
+
+/* Card Hover Premium */
+.card-hover {
+  transition: all 0.3s ease;
+  border-top: 4px solid #f59e0b; /* gold accent */
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(251,191,36,0.35);
+}
+
+/* Gallery Premium */
+.gallery-img {
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 35px rgba(250, 204, 21, 0.45); /* golden glow */
+}
+
+/* Form Input Premium */
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.input-field:focus {
+  border-color: #f59e0b; /* Gold Amber */
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
+}
+
+/* Premium Button Style */
+button, .btn-premium {
+  background: linear-gradient(135deg, #16a34a, #facc15);
+  color: #1f2937;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(250, 204, 21, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+button:hover, .btn-premium:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(250, 204, 21, 0.5);
+}
+
+/* Ripple Effect pada tombol */
+button::after, .btn-premium::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.4);
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple 0.6s linear;
+}
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* Spinner kecil untuk tombol submit */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid #facc15;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Section spacing */
+.section {
+  padding: 5rem 1rem;
+}
