@@ -1,43 +1,41 @@
 /* ================================
-   🌟 Melon Premium Interactive JS
+   🌟 ARMI FARM Interactive JS
    ================================ */
 
-// ========== Smooth Scroll + Highlight ==========
+// Smooth Scroll + Highlight
+
 function scrollToSection(sectionId) {
   const element = document.querySelector(sectionId);
   if (!element) return;
 
   element.scrollIntoView({ behavior: "smooth" });
 
-  // Premium glow highlight
-  element.classList.add("highlight");
+  element.classList.add("sectionHighlight");
   element.style.boxShadow = "0 0 25px rgba(250, 204, 21, 0.6)";
 
   setTimeout(() => {
-    element.classList.remove("highlight");
+    element.classList.remove("sectionHighlight");
     element.style.boxShadow = "none";
   }, 1400);
 }
 
-// ========== Toast Notification ==========
+// Toast Notification
 function showToast(message) {
   const toast = document.createElement("div");
   toast.textContent = `🌟 ${message}`;
-  toast.className = "toast";
+  toast.className = "toastBox";
   document.body.appendChild(toast);
 
-  // animasi masuk
   setTimeout(() => toast.classList.add("show"), 100);
 
-  // auto hilang setelah 4 detik
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 400);
   }, 4000);
 }
 
-// ========== Reveal Animation Saat Scroll ==========
-const reveals = document.querySelectorAll(".reveal");
+// Reveal Animation
+const reveals = document.querySelectorAll(".revealItem");
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
@@ -46,7 +44,6 @@ function revealOnScroll() {
     const elementTop = el.getBoundingClientRect().top;
 
     if (elementTop < windowHeight - 80) {
-      // Delay bertahap biar elegan
       setTimeout(() => el.classList.add("active"), i * 120);
     }
   });
@@ -55,7 +52,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-// ========== Form Interaktif ==========
+// Form Submit
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const button = form?.querySelector("button");
@@ -64,13 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Tambah animasi spinner loading
       button.disabled = true;
-      button.innerHTML = `
-        <span class="spinner"></span> Mengirim...
-      `;
+      button.innerHTML = `<span class="spinner"></span> Mengirim...`;
 
-      // Simulasi submit sukses
       setTimeout(() => {
         button.disabled = false;
         button.textContent = "Kirim Pesan";
@@ -80,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========== Ripple Effect untuk Semua Tombol ==========
-  document.querySelectorAll("button, .btn-premium").forEach((btn) => {
+  // Ripple Effect
+  document.querySelectorAll("button, .btnPrimary").forEach((btn) => {
     btn.addEventListener("click", function (e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -93,42 +86,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Smooth scroll for nav
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            document.querySelector(link.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+  const navLinks = document.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
+  });
 });
 
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuBtn.addEventListener("click", () => {
-  if (mobileMenu.classList.contains("hidden")) {
-    mobileMenu.classList.remove("hidden");
-    setTimeout(() => {
-      mobileMenu.classList.remove("scale-y-0");
-      mobileMenu.classList.add("scale-y-100");
-    }, 10);
-  } else {
-    mobileMenu.classList.remove("scale-y-100");
-    mobileMenu.classList.add("scale-y-0");
-    setTimeout(() => {
-      mobileMenu.classList.add("hidden");
-    }, 300);
-  }
-});
-
-
-
-
-
-  // Animasi kata-kata
+// Typewriter Effect
+document.addEventListener("DOMContentLoaded", () => {
   const words = [
     "🍈 Hidroponic Premium, Rasa Tak Tertandingi",
     "🌱 Fresh, Manis, dan Sehat Setiap Hari",
@@ -136,11 +108,11 @@ menuBtn.addEventListener("click", () => {
     "✨ Pertanian Modern untuk Masa Depan"
   ];
 
-  let i = 0;       // index kata
-  let j = 0;       // index huruf
+  let i = 0;
+  let j = 0;
   let currentWord = "";
   let isDeleting = false;
-  const speed = 100; // kecepatan ketik
+  const speed = 80;
   const element = document.getElementById("animatedText");
 
   function type() {
@@ -149,7 +121,7 @@ menuBtn.addEventListener("click", () => {
       element.textContent = currentWord.slice(0, ++j);
       if (j === currentWord.length) {
         isDeleting = true;
-        setTimeout(type, 1500); // jeda sebelum hapus
+        setTimeout(type, 1500);
         return;
       }
     } else {
@@ -163,8 +135,71 @@ menuBtn.addEventListener("click", () => {
   }
 
   type();
+});
 
-  // Smooth scroll function
-  function scrollToSection(id) {
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  }
+// Mobile menu toggle
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("overlay");
+
+  // buka menu
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    overlay.classList.add("active");
+  });
+
+  // tombol close
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // klik overlay
+  overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // auto close kalau klik link
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+  });
+});
+
+// Scroll Trigger dengan Intersection Observer
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".scrollTrigger");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+var tl = gsap.timeline()
+
+tl.from("h1",{
+    y:-20,
+    opacity:0,
+    duration:1,
+    delay:0.2
+})
+
+tl.from("a",{
+    y:-30,
+    opacity:0,
+    duration:0.4,
+    stagger:0.2
+})
