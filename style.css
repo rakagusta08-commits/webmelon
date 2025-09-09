@@ -1,25 +1,23 @@
-/* Animasi Fade */
-.fade-in {
-  animation: fadeIn 1s ease-in;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-/* Navbar Links */
-.nav-link {
+/* Navbar */
+.desktop{
   color: #374151;
   font-weight: 500;
   transition: all 0.3s ease;
 }
-.nav-link:hover {
-  color: #f59e0b; /* Gold Amber */
-  transform: translateY(-2px);
+.desktop ul a:hover {
+  color: #f59e0b;
+  transform: translateX(-2px);
 }
 
-/* Highlight section */
-.highlight {
+/* Section Highlight */
+.sectionHighlight {
   animation: highlightFade 1.2s ease-in-out;
 }
 @keyframes highlightFade {
@@ -27,12 +25,12 @@
   to { background-color: transparent; }
 }
 
-/* Toast Notification */
-.toast {
+/* Toast */
+.toastBox {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #166534, #facc15); /* emerald → gold */
+  background: linear-gradient(135deg, #166534, #facc15);
   color: white;
   padding: 12px 20px;
   border-radius: 10px;
@@ -44,13 +42,13 @@
   z-index: 9999;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
-.toast.show {
+.toastBox.show {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Section Titles */
-.section-title {
+.sectionTitle {
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -59,7 +57,7 @@
   -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
 }
-.section-subtitle {
+.sectionSubtitle {
   color: #4b5563;
   font-size: 1.125rem;
   max-width: 40rem;
@@ -67,8 +65,8 @@
   line-height: 1.6;
 }
 
-/* Hero dengan nuansa premium */
-.hero-bg {
+/* Hero */
+.heroSection {
   background: linear-gradient(rgba(22,101,52,0.75), rgba(202,138,4,0.5)), 
               url("Unknown-5.jpg") center/cover no-repeat;
   min-height: 85vh;
@@ -78,7 +76,7 @@
   position: relative;
   color: white;
 }
-.hero-bg::after {
+.heroSection::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -86,65 +84,43 @@
   border-radius: 0.75rem;
 }
 
-/* Animasi muncul scroll */
-.reveal {
+/* Reveal */
+.revealItem {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
 }
-.reveal.active {
+.revealItem.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Card Style */
-.card {
+/* Cards */
+.cardPremium {
+  transition: all 0.3s ease;
+  border-top: 4px solid #f59e0b;
   background: white;
   border-radius: 1rem;
   overflow: hidden;
-  padding-bottom: 1rem;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
 }
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-.card-img {
-  height: 160px;
-  width: 100%;
-  object-fit: cover;
-}
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-  color: #166534;
-}
-
-/* Card Hover Premium */
-.card-hover {
-  transition: all 0.3s ease;
-  border-top: 4px solid #f59e0b; /* gold accent */
-}
-.card-hover:hover {
+.cardPremium:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 15px 30px rgba(251,191,36,0.35);
 }
 
-/* Gallery Premium */
-.gallery-img {
+/* Gallery */
+.galleryImage {
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.gallery-img:hover {
+.galleryImage:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 35px rgba(250, 204, 21, 0.45); /* golden glow */
+  box-shadow: 0 12px 35px rgba(250, 204, 21, 0.45);
 }
 
-/* Form Input Premium */
-.input-field {
+/* Form */
+.formInput {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;
@@ -152,13 +128,13 @@
   outline: none;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
-.input-field:focus {
-  border-color: #f59e0b; /* Gold Amber */
+.formInput:focus {
+  border-color: #f59e0b;
   box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
 }
 
-/* Premium Button Style */
-button, .btn-premium {
+/* Buttons */
+.btnPrimary {
   background: linear-gradient(135deg, #16a34a, #facc15);
   color: #1f2937;
   font-weight: 700;
@@ -169,13 +145,11 @@ button, .btn-premium {
   position: relative;
   overflow: hidden;
 }
-button:hover, .btn-premium:hover {
+.btnPrimary:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(250, 204, 21, 0.5);
 }
-
-/* Ripple Effect pada tombol */
-button::after, .btn-premium::after {
+.btnPrimary::after {
   content: "";
   position: absolute;
   width: 100px;
@@ -195,7 +169,7 @@ button::after, .btn-premium::after {
   }
 }
 
-/* Spinner kecil untuk tombol submit */
+/* Spinner */
 .spinner {
   display: inline-block;
   width: 16px;
@@ -213,7 +187,83 @@ button::after, .btn-premium::after {
   }
 }
 
-/* Section spacing */
-.section {
-  padding: 5rem 1rem;
+/* Cursor Blink untuk Animated Text */
+#animatedText::after {
+  content: '|';
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
+/* Overlay background */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease; 
+  z-index: 998;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Menu Slide */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 15px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+.mobileMenu.active {
+  right: 0;
+}
+.mobileMenu a {
+  font-size: 1.125rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+.mobileMenu a:hover {
+  color: #f59e0b;
+}
+
+/* Close Button */
+.closeBtn {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  color: #374151;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.closeBtn:hover {
+  color: #f59e0b;
+}
+
+/* Scroll Trigger Animation */
+.scrollTrigger {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease-out;
+}
+.scrollTrigger.active {
+  opacity: 1;
+  transform: translateY(0);
 }
