@@ -4,93 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARMI FARM</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="WhatsApp_Image_2025-09-08_at_19.03.50_66dfdd59-removebg-preview.png" type="image/png"> 
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="fade-in bg-gray-50">
+<body class="pageFade bg-gray-50">
 
-   <!-- Navbar -->
-<header class="bg-white/90 backdrop-blur-md shadow-md fixed w-full top-0 z-50">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-extrabold text-green-600 flex items-center">
-      🍈 ARMI FARM
-    </h1>
+  <!-- Navbar -->
+  <header class="bg-white/90 backdrop-blur-md shadow-md fixed w-full top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold text-green-600">🍈 ARMI FARM</h1>
+      
+      <!-- Desktop Menu -->
+       <div class="desktop">
+         <ul class="hidden md:flex space-x-6 font-medium navItem">
+           <a href="#home">Beranda</a>
+           <a href="#about">Tentang</a>
+           <a href="#varieties">Varietas</a>
+           <a href="#growing">Bertanam</a>
+           <a href="#gallery">Galeri</a>
+           <a href="#contact">Kontak</a>
+         </ul>
+       </div>
 
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-6 font-medium">
-      <li><a href="#home" class="nav-link">Beranda</a></li>
-      <li><a href="#about" class="nav-link">Tentang</a></li>
-      <li><a href="#varieties" class="nav-link">Varietas</a></li>
-      <li><a href="#growing" class="nav-link">Bertanam</a></li>
-      <li><a href="#gallery" class="nav-link">Galeri</a></li>
-      <li><a href="#contact" class="nav-link">Kontak</a></li>
-    </ul>
+      <!-- Mobile Button -->
+      <button id="menuBtn" class="md:hidden text-2xl text-green-600 focus:outline-none">☰</button>
+    </nav>
 
-    <!-- Mobile Button -->
-    <button id="menuBtn" class="md:hidden text-3xl text-green-600 focus:outline-none">
-      ☰
-    </button>
-  </nav>
+    <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobileMenu">
+          <button id="closeBtn" class="closeBtn">✕</button>
+          <a href="#home" class="nav-link">Beranda</a>
+          <a href="#about" class="nav-link">Tentang</a>
+          <a href="#varieties" class="nav-link">Varietas</a>
+          <a href="#growing" class="nav-link">Bertanam</a>
+          <a href="#gallery" class="nav-link">Galeri</a>
+          <a href="#contact" class="nav-link">Kontak</a>
+      </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden flex-col bg-gradient-to-b from-green-50 to-green-100 border-t border-green-200 px-6 py-6 md:hidden space-y-4 shadow-lg transform origin-top transition-all duration-300 scale-y-0">
-    <a href="#home" class="block nav-link hover:text-green-600 transition">Beranda</a>
-    <a href="#about" class="block nav-link hover:text-green-600 transition">Tentang</a>
-    <a href="#varieties" class="block nav-link hover:text-green-600 transition">Varietas</a>
-    <a href="#growing" class="block nav-link hover:text-green-600 transition">Bertanam</a>
-    <a href="#gallery" class="block nav-link hover:text-green-600 transition">Galeri</a>
-    <a href="#contact" class="block nav-link hover:text-green-600 transition">Kontak</a>
-  </div>
-</header>
-
-
-    </div>
   </header>
 
-<!-- Hero -->
-<section id="home" class="hero-bg text-center relative">
-  <div class="absolute inset-0 bg-black/40 rounded-lg"></div>
-  <div class="relative z-10 max-w-4xl mx-auto px-4 py-24">
-    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg text-white">
-      Selamat Datang di <span class="text-yellow-300">ARMI FARM HYDROPONIC</span>
-    </h2>
+  <!-- Hero -->
+  <section id="home" class="heroSection text-center relative">
+    <div class="absolute inset-0 bg-black/40 rounded-lg"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-24">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg text-white">
+        Selamat Datang di <span class="text-yellow-300">ARMI FARM HYDROPONIC</span>
+      </h2>
 
-    <!-- Animasi kata-kata -->
-    <p id="animatedText" class="text-2xl md:text-3xl font-semibold text-gray-100 h-12"></p>
+      
+  <div id="overlay" class="overlay"></div>
 
-    <button onclick="scrollToSection('#about')"
-      class="mt-8 bg-yellow-300 hover:bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-semibold shadow-lg transition transform hover:scale-105">
-      Pelajari Lebih Lanjut
-    </button>
-  </div>
-</section>
+      <!-- Animasi kata-kata -->
+      <p id="animatedText" class="text-2xl md:text-3xl font-semibold text-gray-100 h-12"></p>
 
-<style>
-  /* Cursor kedip */
-  #animatedText::after {
-    content: '|';
-    margin-left: 4px;
-    animation: blink 0.8s infinite;
-  }
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-</style>
-
-
-
+      <button onclick="scrollToSection('#about')"
+        class="mt-8 btnPrimary">
+        Pelajari Lebih Lanjut
+      </button>
+    </div>
+  </section>
 
   <!-- About -->
-  <section id="about" class="py-20 bg-white reveal">
+  <section id="about" class="py-20 bg-white revealItem scrollTrigger">
     <div class="container mx-auto px-6 text-center">
-      <h3 class="section-title">Tentang Kami – Armi Hydroponic Melon 🍈🌱</h3>
-      <p class="section-subtitle max-w-3xl mx-auto mb-6">
+      <h3 class="sectionTitle">Tentang Kami – Armi Hydroponic Melon 🍈🌱</h3>
+      <p class="sectionSubtitle max-w-3xl mx-auto mb-6">
         Armi Hydroponic Melon adalah usaha pertanian modern yang berfokus pada budidaya melon premium dengan sistem hidroponik. 
         Dengan metode ini, tanaman tumbuh tanpa tanah, melainkan menggunakan larutan nutrisi yang terkontrol sehingga menghasilkan 
         buah yang lebih manis, segar, dan higienis.
       </p>
-      <p class="section-subtitle max-w-3xl mx-auto mb-6">
+      <p class="sectionSubtitle max-w-3xl mx-auto mb-6">
         Kami berkomitmen untuk menghadirkan melon berkualitas tinggi yang tidak hanya lezat, tetapi juga sehat dan aman untuk dikonsumsi. 
         Setiap buah dipelihara dengan penuh perhatian, mulai dari pemilihan benih unggul, proses perawatan, hingga panen, 
         sehingga menghasilkan melon dengan rasa istimewa dan kualitas konsisten.
@@ -117,27 +101,26 @@
     </div>
   </section>
 
-
   <!-- Varieties -->
-  <section id="varieties" class="py-20 bg-gray-100">
+  <section id="varieties" class="py-20 bg-gray-100 scrollTrigger"> 
     <div class="container mx-auto px-6">
-      <h3 class="section-title text-center">Varietas Melon Populer</h3>
+      <h3 class="sectionTitle text-center">Varietas Melon Populer</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
           <img src="Unknown-10.jpg" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Melon Mahal</h4>
             <p>Melon yang manis dan juicy.</p>
           </div>
         </div>
-        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
           <img src="Unknown-5.jpg" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Honeydew</h4>
             <p>Renyah, manis, tahan penyakit.</p>
           </div>
         </div>
-        <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
           <img src="https://picsum.photos/400/200?random=6" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Galia</h4>
@@ -148,12 +131,11 @@
     </div>
   </section>
 
-
   <!-- Growing -->
-  <section id="growing" class="py-20 bg-white">
+  <section id="growing" class="py-20 bg-white scrollTrigger">
     <div class="container mx-auto px-6">
-      <h3 class="section-title text-center">Cara Bertanam & Perawatan Melon 🍈</h3>
-      <p class="section-subtitle text-center max-w-3xl mx-auto mb-12">
+      <h3 class="sectionTitle text-center">Cara Bertanam & Perawatan Melon 🍈</h3>
+      <p class="sectionSubtitle text-center max-w-3xl mx-auto mb-12">
         Demi mendapatkan hasil terbaik, kami sangat menjaga dan merawat buah melon agar kualitasnya maksimal.
         Berikut tahapan penting yang rutin dilakukan dari pembibitan hingga panen:
       </p>
@@ -168,19 +150,19 @@
         <!-- Step 2 -->
         <div class="mb-10 ml-6">
           <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-green-500 rounded-full text-white font-bold">2</span>
-          <h4 class="text-xl font-semibold text-green-700">✂️ Pruning & Pemangkasan (Umur 40 HST)</h4>
+          <h4 class="text-xl font-semibold text-green-700">✂ Pruning & Pemangkasan (Umur 40 HST)</h4>
           <p class="text-gray-700">Pemangkasan cabang sampai ruas daun ke-25 dan pemotongan pucuk agar nutrisi fokus ke buah.</p>
         </div>
         <!-- Step 3 -->
         <div class="mb-10 ml-6">
           <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-green-500 rounded-full text-white font-bold">3</span>
-          <h4 class="text-xl font-semibold text-green-700">⚗️ Kontrol pH Nutrisi</h4>
+          <h4 class="text-xl font-semibold text-green-700">⚗ Kontrol pH Nutrisi</h4>
           <p class="text-gray-700">pH larutan nutrisi diperiksa rutin. Jika naik, diturunkan dengan pH Bawah.</p>
         </div>
         <!-- Step 4 -->
         <div class="mb-10 ml-6">
           <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-green-500 rounded-full text-white font-bold">4</span>
-          <h4 class="text-xl font-semibold text-green-700">🛡️ Pemeliharaan Hama & Penyakit (Umur 56–60 Hari)</h4>
+          <h4 class="text-xl font-semibold text-green-700">🛡 Pemeliharaan Hama & Penyakit (Umur 56–60 Hari)</h4>
           <p class="text-gray-700">Tanaman dijaga agar bebas dari hama & penyakit menjelang panen.</p>
         </div>
         <!-- Step 5 -->
@@ -199,48 +181,46 @@
     </div>
   </section>
 
-
-   <!-- Gallery -->
-  <section id="gallery" class="py-20 bg-white">
+  <!-- Gallery -->
+  <section id="gallery" class="py-20 bg-white scrollTrigger">
     <div class="container mx-auto px-6 text-center">
-      <h3 class="section-title">Galeri Melon 🍈</h3>
+      <h3 class="sectionTitle">Galeri Melon 🍈</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-        <!-- Gambar lokal -->
-        <img src="Unknown-6.jpg" class="gallery-img" />
-        <img src="Unknown-5.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-
-        <!-- Tambahan gambar random melon dari internet -->
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
-        <img src="unknow.jpg" class="gallery-img" />
+        <img src="Unknown-6.jpg" class="galleryImage" />
+        <img src="Unknown-5.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
+        <img src="unknow.jpg" class="galleryImage" />
       </div>
     </div>
   </section>
 
-
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-gray-100">
+  <section id="contact" class="py-20 bg-gray-100 scrollTrigger">
     <div class="container mx-auto px-6 text-center">
-      <h3 class="section-title">Hubungi Kami</h3>
-      <p class="section-subtitle">Punya pertanyaan? Kirim pesan!</p>
+      <h3 class="sectionTitle">Hubungi Kami</h3>
+      <p class="sectionSubtitle">Punya pertanyaan? Kirim pesan!</p>
       <form class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow mt-8 space-y-4">
-        <input type="text" placeholder="Nama Anda" class="input-field" required>
-        <input type="email" placeholder="Email Anda" class="input-field" required>
-        <textarea placeholder="Pesan Anda" rows="4" class="input-field" required></textarea>
+        <input type="text" placeholder="Nama Anda" class="formInput" required>
+        <input type="email" placeholder="Email Anda" class="formInput" required>
+        <textarea placeholder="Pesan Anda" rows="4" class="formInput" required></textarea>
         <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 transition transform hover:scale-105">Kirim Pesan</button>
       </form>
     </div>
   </section>
 
+
   <!-- Footer -->
   <footer class="bg-green-700 text-white py-6 text-center">
     <p>© 2025 Perkebunan Melon. Dibuat perkembangan Melon 💚</p>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="script.js"></script>
 </body>
