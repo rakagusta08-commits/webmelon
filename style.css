@@ -75,6 +75,7 @@ header {
   justify-content: center;
   position: relative;
   color: white;
+  margin-top: 5%;
 }
 .heroSection::after {
   content: "";
@@ -266,4 +267,58 @@ header {
 .scrollTrigger.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.sliderWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;   /* cuma nampilin 1 slide */
+  border-radius: 0.75rem;
+}
+
+.slider {
+  display: flex;      /* bikin slide berjejer horizontal */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;    /* setiap slide full lebar viewport */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Tombol Navigasi */
+.sliderBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bolder;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 20;
+  transition: background 0.3s;
+  font-size: 2.6rem;
+}
+
+.sliderBtn.prev {
+  left: 15px;
+}
+
+.sliderBtn.next {
+  right: 15px;
+}
+
+
+@media(max-width: 472px) {
+  .judul h2 {
+    font-size: 2.3rem !important;
+  }
+
+  #animatedText {
+    font-size: 1.2rem !important;
+  }
 }
