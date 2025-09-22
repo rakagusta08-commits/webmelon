@@ -188,6 +188,93 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach(el => observer.observe(el));
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector("#home .slider");
+  let slides = document.querySelectorAll("#home .slide");
+  const prevBtn = document.querySelector("#home .sliderBtn.prev");
+  const nextBtn = document.querySelector("#home .sliderBtn.next");
+
+  let current = 1; // mulai di slide pertama (setelah clone)
+  let autoPlay;
+
+  // Clone pertama & terakhir
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+
+  firstClone.id = "first-clone";
+  lastClone.id = "last-clone";
+
+  slider.appendChild(firstClone);
+  slider.insertBefore(lastClone, slides[0]);
+
+  slides = document.querySelectorAll("#home .slide");
+  const size = slides[0].clientWidth;
+
+  // Set awal TANPA animasi
+  slider.style.transition = "none";
+  slider.style.transform = `translateX(-${size * current}px)`;
+  
+  // Setelah delay kecil, aktifkan animasi
+  setTimeout(() => {
+    slider.style.transition = "transform 0.8s ease-in-out";
+  }, 50);
+
+
+  // Update slide
+  function updateSlide() {
+    slider.style.transition = "transform 0.8s ease-in-out";
+    slider.style.transform = `translateX(-${size * current}px)`;
+  }
+
+  function nextSlide() {
+    if (current >= slides.length - 1) return;
+    current++;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    if (current <= 0) return;
+    current--;
+    updateSlide();
+  }
+
+  // Event tombol
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoPlay();
+  });
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoPlay();
+  });
+
+  // Transition end → reset posisi kalau clone
+  slider.addEventListener("transitionend", () => {
+    if (slides[current].id === "first-clone") {
+      slider.style.transition = "none";
+      current = 1;
+      slider.style.transform = `translateX(-${size * current}px)`;
+    }
+    if (slides[current].id === "last-clone") {
+      slider.style.transition = "none";
+      current = slides.length - 2;
+      slider.style.transform = `translateX(-${size * current}px)`;
+    }
+  });
+
+  // Autoplay tiap 5 detik
+  function startAutoPlay() {
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+  function resetAutoPlay() {
+    clearInterval(autoPlay);
+    startAutoPlay();
+  }
+
+  startAutoPlay();
+});
+
+
 var tl = gsap.timeline()
 
 tl.from("h1",{
@@ -203,3 +290,4 @@ tl.from("a",{
     duration:0.4,
     stagger:0.2
 })
+
