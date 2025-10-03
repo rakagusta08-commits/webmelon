@@ -1,22 +1,107 @@
+/* ===== Header & Navbar ===== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  background-color: #1a472a; /* hijau tua */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
 
-/* Navbar */
-.desktop{
+.desktop {
   color: #374151;
   font-weight: 500;
   transition: all 0.3s ease;
 }
+
 .desktop ul a:hover {
   color: #f59e0b;
   transform: translateX(-2px);
 }
 
-/* Section Highlight */
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f4f9f0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f4f9f0;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffdd57; /* kuning segar */
+}
+
+.cta-btn {
+  background: #ffdd57;
+  color: #1a472a;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #f9c74f;
+  transform: scale(1.05);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    background: #1a472a;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .cta-btn {
+    display: none;
+  }
+}
+
+/* ===== Section Highlight ===== */
 .sectionHighlight {
   animation: highlightFade 1.2s ease-in-out;
 }
@@ -25,7 +110,7 @@ header {
   to { background-color: transparent; }
 }
 
-/* Toast */
+/* ===== Toast Notification ===== */
 .toastBox {
   position: fixed;
   bottom: 20px;
@@ -47,7 +132,7 @@ header {
   transform: translateY(0);
 }
 
-/* Section Titles */
+/* ===== Section Titles ===== */
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 900;
@@ -65,7 +150,7 @@ header {
   line-height: 1.6;
 }
 
-/* Hero */
+/* ===== Hero Section ===== */
 .heroSection {
   background: linear-gradient(rgba(22,101,52,0.75), rgba(202,138,4,0.5)), 
               url("Unknown-5.jpg") center/cover no-repeat;
@@ -85,7 +170,7 @@ header {
   border-radius: 0.75rem;
 }
 
-/* Reveal */
+/* ===== Reveal Animation ===== */
 .revealItem {
   opacity: 0;
   transform: translateY(40px);
@@ -96,7 +181,7 @@ header {
   transform: translateY(0);
 }
 
-/* Cards */
+/* ===== Cards ===== */
 .cardPremium {
   transition: all 0.3s ease;
   border-top: 4px solid #f59e0b;
@@ -110,7 +195,7 @@ header {
   box-shadow: 0 15px 30px rgba(251,191,36,0.35);
 }
 
-/* Gallery */
+/* ===== Gallery ===== */
 .galleryImage {
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -120,7 +205,7 @@ header {
   box-shadow: 0 12px 35px rgba(250, 204, 21, 0.45);
 }
 
-/* Form */
+/* ===== Form ===== */
 .formInput {
   width: 100%;
   padding: 0.75rem;
@@ -134,7 +219,7 @@ header {
   box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 .btnPrimary {
   background: linear-gradient(135deg, #16a34a, #facc15);
   color: #1f2937;
@@ -170,7 +255,7 @@ header {
   }
 }
 
-/* Spinner */
+/* ===== Spinner ===== */
 .spinner {
   display: inline-block;
   width: 16px;
@@ -188,7 +273,7 @@ header {
   }
 }
 
-/* Cursor Blink untuk Animated Text */
+/* ===== Cursor Blink ===== */
 #animatedText::after {
   content: '|';
   margin-left: 4px;
@@ -199,8 +284,7 @@ header {
   51%, 100% { opacity: 0; }
 }
 
-
-/* Overlay background */
+/* ===== Overlay ===== */
 .overlay {
   position: fixed;
   inset: 0;
@@ -215,7 +299,7 @@ header {
   visibility: visible;
 }
 
-/* Mobile Menu Slide */
+/* ===== Mobile Menu ===== */
 .mobileMenu {
   position: fixed;
   top: 0;
@@ -243,8 +327,6 @@ header {
 .mobileMenu a:hover {
   color: #f59e0b;
 }
-
-/* Close Button */
 .closeBtn {
   align-self: flex-end;
   font-size: 1.5rem;
@@ -258,7 +340,7 @@ header {
   color: #f59e0b;
 }
 
-/* Scroll Trigger Animation */
+/* ===== Scroll Trigger ===== */
 .scrollTrigger {
   opacity: 0;
   transform: translateY(60px);
@@ -269,27 +351,24 @@ header {
   transform: translateY(0);
 }
 
+/* ===== Slider ===== */
 .sliderWrapper {
   position: absolute;
   inset: 0;
-  overflow: hidden;   /* cuma nampilin 1 slide */
+  overflow: hidden;
   border-radius: 0.75rem;
 }
-
 .slider {
-  display: flex;      /* bikin slide berjejer horizontal */
+  display: flex;
   width: 100%;
   height: 100%;
   transition: transform 0.8s ease-in-out;
 }
-
 .slide {
-  min-width: 100%;    /* setiap slide full lebar viewport */
+  min-width: 100%;
   background-size: cover;
   background-position: center;
 }
-
-/* Tombol Navigasi */
 .sliderBtn {
   position: absolute;
   top: 50%;
@@ -303,22 +382,94 @@ header {
   transition: background 0.3s;
   font-size: 2.6rem;
 }
+.sliderBtn.prev { left: 15px; }
+.sliderBtn.next { right: 15px; }
 
-.sliderBtn.prev {
-  left: 15px;
-}
-
-.sliderBtn.next {
-  right: 15px;
-}
-
-
+/* ===== Responsive ===== */
 @media(max-width: 472px) {
   .judul h2 {
     font-size: 2.3rem !important;
   }
-
   #animatedText {
     font-size: 1.2rem !important;
   }
+}
+
+/* ===== Footer with Slide-Up Animation ===== */
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.footer {
+  background: #1e5631; /* hijau tua */
+  color: #f4f9f0;
+  padding: 3rem 1.5rem 1rem;
+  font-family: 'Arial', sans-serif;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-in-out;
+}
+.footer.show {
+  animation: slideUp 1s ease forwards;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-about {
+  flex: 1 1 300px;
+}
+.footer-logo {
+  color: #ffdd57;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.footer-about p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+.footer-contact, .footer-nav {
+  flex: 1 1 200px;
+}
+.footer-contact h3,
+.footer-nav h3 {
+  margin-bottom: 1rem;
+  color: #ffdd57;
+}
+.footer-contact p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-nav ul li {
+  margin: 0.5rem 0;
+}
+.footer-nav ul li a {
+  color: #f4f9f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-nav ul li a:hover {
+  color: #ffdd57;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #d9f7d6;
 }
