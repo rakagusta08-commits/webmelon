@@ -3,7 +3,6 @@
    ================================ */
 
 // Smooth Scroll + Highlight
-
 function scrollToSection(sectionId) {
   const element = document.querySelector(sectionId);
   if (!element) return;
@@ -48,7 +47,6 @@ function revealOnScroll() {
     }
   });
 }
-
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
@@ -86,15 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Smooth scroll for nav
-document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = document.querySelectorAll('a');
+// Smooth scroll for nav + Navbar Links
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("a[href^='#']");
   navLinks.forEach(link => {
-    link.addEventListener('click', event => {
+    link.addEventListener("click", event => {
       event.preventDefault();
-      document.querySelector(link.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     });
   });
 });
@@ -133,43 +132,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     setTimeout(type, isDeleting ? speed / 2 : speed);
   }
-
   type();
 });
 
 // Mobile menu toggle
-
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("menuBtn");
   const closeBtn = document.getElementById("closeBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const overlay = document.getElementById("overlay");
 
-  // buka menu
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.add("active");
-    overlay.classList.add("active");
-  });
+  if (menuBtn && closeBtn && mobileMenu && overlay) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+      overlay.classList.add("active");
+    });
 
-  // tombol close
-  closeBtn.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-  });
-
-  // klik overlay
-  overlay.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-  });
-
-  // auto close kalau klik link
-  mobileMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
+    closeBtn.addEventListener("click", () => {
       mobileMenu.classList.remove("active");
       overlay.classList.remove("active");
     });
-  });
+
+    overlay.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    });
+  }
 });
 
 // Scroll Trigger dengan Intersection Observer
@@ -188,16 +183,18 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach(el => observer.observe(el));
 });
 
+// Slider
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector("#home .slider");
+  if (!slider) return;
+
   let slides = document.querySelectorAll("#home .slide");
   const prevBtn = document.querySelector("#home .sliderBtn.prev");
   const nextBtn = document.querySelector("#home .sliderBtn.next");
 
-  let current = 1; // mulai di slide pertama (setelah clone)
+  let current = 1;
   let autoPlay;
 
-  // Clone pertama & terakhir
   const firstClone = slides[0].cloneNode(true);
   const lastClone = slides[slides.length - 1].cloneNode(true);
 
@@ -210,17 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
   slides = document.querySelectorAll("#home .slide");
   const size = slides[0].clientWidth;
 
-  // Set awal TANPA animasi
   slider.style.transition = "none";
   slider.style.transform = `translateX(-${size * current}px)`;
   
-  // Setelah delay kecil, aktifkan animasi
   setTimeout(() => {
     slider.style.transition = "transform 0.8s ease-in-out";
   }, 50);
 
-
-  // Update slide
   function updateSlide() {
     slider.style.transition = "transform 0.8s ease-in-out";
     slider.style.transform = `translateX(-${size * current}px)`;
@@ -238,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlide();
   }
 
-  // Event tombol
   nextBtn.addEventListener("click", () => {
     nextSlide();
     resetAutoPlay();
@@ -248,7 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
     resetAutoPlay();
   });
 
-  // Transition end → reset posisi kalau clone
   slider.addEventListener("transitionend", () => {
     if (slides[current].id === "first-clone") {
       slider.style.transition = "none";
@@ -262,7 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Autoplay tiap 5 detik
   function startAutoPlay() {
     autoPlay = setInterval(nextSlide, 5000);
   }
@@ -274,20 +264,43 @@ document.addEventListener("DOMContentLoaded", () => {
   startAutoPlay();
 });
 
+// GSAP Header Animasi
+var tl = gsap.timeline();
+tl.from("h1", {
+  y:-20,
+  opacity:0,
+  duration:1,
+  delay:0.2
+});
+tl.from("a", {
+  y:-30,
+  opacity:0,
+  duration:0.4,
+  stagger:0.2
+});
 
-var tl = gsap.timeline()
+// Toggle menu di mobile (icon bar)
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+}
 
-tl.from("h1",{
-    y:-20,
-    opacity:0,
-    duration:1,
-    delay:0.2
-})
+// ✅ Animasi Footer Slide-Up
+document.addEventListener("DOMContentLoaded", () => {
+  const footer = document.querySelector(".footer");
+  if (!footer) return;
 
-tl.from("a",{
-    y:-30,
-    opacity:0,
-    duration:0.4,
-    stagger:0.2
-})
+  function revealFooter() {
+    const footerPos = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
+    if (footerPos < windowHeight - 50) {
+      footer.classList.add("show");
+      window.removeEventListener("scroll", revealFooter);
+    }
+  }
+  window.addEventListener("scroll", revealFooter);
+});
