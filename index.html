@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARMI FARM</title>
-  <link rel="icon" href="WhatsApp_Image_2025-09-08_at_19.03.50_66dfdd59-removebg-preview.png" type="image/png"> 
+  <link rel="icon" href="Asset/logo.png" type="image/png"> 
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -16,64 +16,59 @@
       <h1 class="text-2xl font-extrabold text-green-600">🍈 ARMI FARM</h1>
       
       <!-- Desktop Menu -->
-       <div class="desktop">
-         <ul class="hidden md:flex space-x-6 font-medium navItem">
-           <a href="#home">Beranda</a>
-           <a href="#about">Tentang</a>
-           <a href="#varieties">Varietas</a>
-           <a href="#growing">Bertanam</a>
-           <a href="#gallery">Galeri</a>
-           <a href="#contact">Kontak</a>
-         </ul>
-       </div>
+      <div class="desktop">
+        <ul class="hidden md:flex space-x-6 font-medium navItem">
+          <a href="#home">Beranda</a>
+          <a href="#about">Tentang</a>
+          <a href="#varieties">Varietas</a>
+          <a href="#growing">Bertanam</a>
+          <a href="#gallery">Galeri</a>
+          <a href="#contact">Kontak</a>
+        </ul>
+      </div>
 
       <!-- Mobile Button -->
       <button id="menuBtn" class="md:hidden text-2xl text-green-600 focus:outline-none">☰</button>
     </nav>
 
     <!-- Mobile Menu -->
-      <div id="mobileMenu" class="mobileMenu">
-          <button id="closeBtn" class="closeBtn">✕</button>
-          <a href="#home" class="nav-link">Beranda</a>
-          <a href="#about" class="nav-link">Tentang</a>
-          <a href="#varieties" class="nav-link">Varietas</a>
-          <a href="#growing" class="nav-link">Bertanam</a>
-          <a href="#gallery" class="nav-link">Galeri</a>
-          <a href="#contact" class="nav-link">Kontak</a>
-      </div>
-
+    <div id="mobileMenu" class="mobileMenu">
+      <button id="closeBtn" class="closeBtn">✕</button>
+      <a href="#home" class="nav-link">Beranda</a>
+      <a href="#about" class="nav-link">Tentang</a>
+      <a href="#varieties" class="nav-link">Varietas</a>
+      <a href="#growing" class="nav-link">Bertanam</a>
+      <a href="#gallery" class="nav-link">Galeri</a>
+      <a href="#contact" class="nav-link">Kontak</a>
+    </div>
   </header>
 
   <!-- Hero -->
   <section id="home" class="heroSection text-center relative">
-  <div class="sliderWrapper">
-    <div class="slider">
-      <div class="slide" style="background-image: url('Unknown-5.jpg')"></div>
-      <div class="slide" style="background-image: url('Unknown-10.jpg')"></div>
-      <div class="slide" style="background-image: url('https://picsum.photos/1600/800?random=1')"></div>
+    <div class="sliderWrapper">
+      <div class="slider">
+        <div class="slide" style="background-image: url('Asset/gambar_1.jpg')"></div>
+        <div class="slide" style="background-image: url('Asset/gambar_2.jpg')"></div>
+        <div class="slide" style="background-image: url('Asset/gambar_3.jpg')"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Tombol Navigasi -->
-  <button class="sliderBtn prev"><</button>
-  <button class="sliderBtn next">></button>
+    <!-- Tombol Navigasi -->
+    <button class="sliderBtn prev"><</button>
+    <button class="sliderBtn next">></button>
 
-  <div class=" judul absolute inset-0 bg-black/40 rounded-lg"></div>
-  <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 judul">
-    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg text-white">
-      Selamat Datang di <span class="text-yellow-300">ARMI FARM HYDROPONIC</span>
-    </h2>
+    <div class="judul absolute inset-0 bg-black/40 rounded-lg"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 judul">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg text-white">
+        Selamat Datang di <span class="text-yellow-300">ARMI FARM HYDROPONIC</span>
+      </h2>
 
-      
-  <div id="overlay" class="overlay"></div>
+      <div id="overlay" class="overlay"></div>
 
       <!-- Animasi kata-kata -->
-      <p id="animatedText" class="text-2xl md:text-3xl font-semibold text-gray-100 h-12">
-        
-      </p>
+      <p id="animatedText" class="text-2xl md:text-3xl font-semibold text-gray-100 h-12"></p>
 
-      <button onclick="scrollToSection('#about')"
-        class="mt-8 btnPrimary">
+      <button onclick="scrollToSection('#about')" class="mt-8 btnPrimary">
         Pelajari Lebih Lanjut
       </button>
     </div>
@@ -121,21 +116,21 @@
       <h3 class="sectionTitle text-center">Varietas Melon Populer</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
-          <img src="Unknown-10.jpg" class="h-40 w-full object-cover" />
+          <img src="Asset/gambar_4.jpg" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Melon Mahal</h4>
             <p>Melon yang manis dan juicy.</p>
           </div>
         </div>
         <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
-          <img src="Unknown-5.jpg" class="h-40 w-full object-cover" />
+          <img src="Asset/gambar_5.jpg" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Honeydew</h4>
             <p>Renyah, manis, tahan penyakit.</p>
           </div>
         </div>
         <div class="cardPremium bg-white rounded-xl shadow-lg overflow-hidden">
-          <img src="https://picsum.photos/400/200?random=6" class="h-40 w-full object-cover" />
+          <img src="Asset/gambar_6.jpg" class="h-40 w-full object-cover" />
           <div class="p-6">
             <h4 class="font-bold text-xl mb-2">Galia</h4>
             <p>Beraroma segar, mudah ditanam.</p>
@@ -200,42 +195,86 @@
     <div class="container mx-auto px-6 text-center">
       <h3 class="sectionTitle">Galeri Melon 🍈</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-        <img src="Unknown-6.jpg" class="galleryImage" />
-        <img src="Unknown-5.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
-        <img src="unknow.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
+        <img src="Asset/gambar_5.jpg" class="galleryImage" />
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 bg-gray-100 scrollTrigger">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="sectionTitle">Hubungi Kami</h3>
-      <p class="sectionSubtitle">Punya pertanyaan? Kirim pesan!</p>
-      <form class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow mt-8 space-y-4">
-        <input type="text" placeholder="Nama Anda" class="formInput" required>
-        <input type="email" placeholder="Email Anda" class="formInput" required>
-        <textarea placeholder="Pesan Anda" rows="4" class="formInput" required></textarea>
-        <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 transition transform hover:scale-105">Kirim Pesan</button>
-      </form>
+  <!-- Navbar tambahan -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🍈 MelonFresh</div>
+      
+      <!-- Toggle Button -->
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Produk</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+      
+      <button class="cta-btn">Beli Sekarang</button>
+    </nav>
+  </header>
+
+  <!-- Footer utama -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Kolom 1 -->
+      <div class="footer-about">
+        <h2 class="footer-logo">🍈 Armi Farm</h2>
+        <p>
+          Armi Farm merupakan usaha pertanian modern berbasis hidroponik.  
+          Kami menyediakan melon premium dengan rasa segar, sehat, dan berkualitas.
+        </p>
+      </div>
+
+      <!-- Kolom 2 -->
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p><strong>📍 Address:</strong> Jl. Pertanian No.7, Bandung, Jawa Barat</p>
+        <p><strong>📞 Phone:</strong> 085624536408</p>
+        <p><strong>✉️ Email:</strong> support@armifarm.id</p>
+        <p><strong>🌐 Website:</strong> www.armifarm.id</p>
+        <p><strong>📸 Instagram:</strong> @armifarm</p>
+      </div>
+
+      <!-- Kolom 3 -->
+      <div class="footer-nav">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Varietas</a></li>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Galeri</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-
-  <!-- Footer -->
-  <footer class="bg-green-700 text-white py-6 text-center">
-    <p>© 2025 Perkebunan Melon. Dibuat perkembangan Melon 💚</p>
+    <div class="footer-bottom">
+      <p>Copyright ©2025 Armi Farm. All Rights Reserved</p>
+    </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <!-- Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" 
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
